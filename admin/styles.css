@@ -1,0 +1,10 @@
+body{
+  font-family: sans-serif;
+}
+
+h3{
+  font-weight: 400;
+  font-style: italic;
+}
+
+.btn-action{margin-right: 10px;}

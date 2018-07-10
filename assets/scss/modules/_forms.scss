@@ -1,0 +1,139 @@
+input:not([type]),
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=url],
+input[type=time],
+input[type=date],
+input[type=datetime],
+input[type=datetime-local],
+input[type=tel],
+input[type=number],
+input[type=search],
+textarea{
+  font-family: $font-popins!important;
+  font-weight: 300;
+  width: 100%;
+  outline: none;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 3px;
+  border: solid #dbdbdb 1px;
+  padding: 10px;
+  color:$grey-d2;
+  @include prefixed(appearance,none);
+  appearance:none;
+  @include prefixed(transition,.3s);
+  transition:.3s;
+  &:active{
+    @include prefixed(box-shadow, $blur-shadow);
+    box-shadow: $blur-shadow;
+    border-color:transparent;
+  }
+  &:focus{
+    @include prefixed(box-shadow, $blur-shadow);
+    box-shadow: $blur-shadow;
+    border-color:transparent;
+  }
+}
+
+textarea{
+  height: 120px;
+  resize: vertical;
+}
+
+::-webkit-input-placeholder { color:#b0b0b0; }/* Chrome/Opera/Safari */
+::-moz-placeholder { color:#b0b0b0; }/* Firefox 19+ */
+:-ms-input-placeholder { color:#b0b0b0 ; }/* IE 10+ */
+:-moz-placeholder { color:#b0b0b0; }/* Firefox 18- */
+
+
+input[type=submit]{
+  @include prefixed(appearance,none);
+  outline: none;
+  border: none;
+}
+
+
+label{
+  margin-top: pxtoem(15px,16px);
+  display: block;
+  font-size: pxtoem(12px,16px);
+  color: $grey;
+  letter-spacing: 1px;
+}
+
+
+select{
+  @include prefixed(appearance,none);
+  appearance:none;
+  transition:.3s;
+  background: transparent;
+  &:after {
+    font-family:'FontAwesome';
+    content: '\f107';
+    display:block;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+
+  select {
+    color: $grey;
+    border: solid 2px $grey-l1!important;
+    width:300px;
+    margin:10px 0px 30px 0px;
+    padding: 15px 10px 15px 10px;
+    position:relative;
+    @include prefixed(transition, 0.4s);
+    font-family: $font-popins;
+    font-size: 12px!important;
+    color: $grey;
+    -webkit-appearance: none;
+    border: none;
+    border-radius: 0;
+    background-image: imgpath('comun','select-arrow.png');
+    background-repeat: no-repeat;
+    background-position: 98%;
+
+    &:focus{
+      outline: 0;
+	    z-index: 1;
+      background:#fafafa;
+      background-image: imgpath('comun','select-arrow.png');
+      background-repeat: no-repeat;
+      background-position: 100%;
+      border-color: #fafafa!important;
+
+    }
+
+    option{
+      font-size: 12px!important;
+    }
+  }
+
+
+
+
+
+button{
+  @include prefixed(appearance,none);
+  outline: none;
+  border: none;
+  border-color:none;
+  line-height: 0px!important;
+  color: $grey-d2;
+  font-family: $font-popins;
+  margin-top: 20px;
+  &.btn-filter{
+    background:darkgrey; margin-top:40px; height:47px;
+  }
+}
+
+
+
+
+
+
+//---------------FORM PARDO---------------

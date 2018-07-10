@@ -1,0 +1,50 @@
+.stick{
+	top: 0px;
+	position: fixed;
+	z-index: 9999;
+	height: 70px;
+	// #logo{
+	// 	width: 40%!important;
+	// }
+
+
+	.nav-container{
+		.nav{
+			.actions{
+				.menu-actions{
+					&__link{
+						span{
+							&:after{
+								top:0px;
+							}
+						}
+
+						@include mq($desktop){
+							height: 108%;
+						};
+					}
+				}
+			}
+
+
+			.sections{
+				.menu{
+					.submenu-trigg{
+						&:after{
+							bottom:-19px;
+						}
+					}
+				}
+			}
+
+
+
+		}
+	}
+}
+
+.navbar{
+	&.stick{
+		#mobile-nav-button{top: 17px;}
+	}
+}

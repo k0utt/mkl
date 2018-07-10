@@ -1,0 +1,68 @@
+/* Aviso básico política de privacidad */
+.aviso-pp{
+  background:#f2f2f2;
+  box-sizing:border-box;
+  padding: 45px 40px;
+  overflow: auto;
+  margin:20px 0px;
+}
+
+
+.aviso-pp__cab{
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: solid 1px #ddd;
+  color: $color-second;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin-top: 0px;
+}
+
+
+.aviso-pp__ap{
+  font-family:'Muli', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: #939393;
+  font-weight: 700;
+}
+
+
+.aviso-pp__des{
+  font-family:'Muli', sans-serif;
+  font-size: 14px;
+  color: #2d2d2d;
+  font-weight: 300;
+  line-height: 23px;
+}
+
+
+.aviso-pp__des a{ font-weight: 600;}
+
+.aviso-pp__c{
+  font-family:'Muli', sans-serif;
+  font-size: 13px;
+  line-height: 22px;
+  color: #2d2d2d;
+  margin:0px 0px 10px 0px;
+}
+.aviso-pp__cb{
+  float: left;
+  margin-bottom: 8px;
+  margin-right: 7px;
+  margin-top: 4px;
+}
+
+
+#aviso{
+  display: block;
+  box-sizing: border-box;
+  padding: 30px 0px;
+  color: tomato;
+}
+
+
+
+#aviso.success{
+    color: #24bc01;
+  }

@@ -1,0 +1,154 @@
+/* Aviso lateral flotante */
+
+%pSideFloat{
+  font-size: pxtoem(13px, 16px);
+  letter-spacing: 0.5px;
+  margin:6px 0px 0px 0px;
+  font-weight: 400;
+  strong{
+    color: $grey-d2;
+    font-weight: 600;
+  }
+  a{
+    display: block;
+   &:hover{
+     color: darken($color-main, 15%);
+   }
+  }
+}
+
+
+
+.side-float{
+    overflow: hidden;
+    height: 120px;
+    width: 447px;
+    position:fixed;
+    z-index: 0;
+    right:20px;
+    bottom:-276px; /* Por defecto está oculto */
+    background-color: #fff;
+    @include prefixed(box-shadow, $blur-shadow);
+    box-shadow:$blur-shadow;
+    @include prefixed(transition, 0.4s);
+    transition:0.4s;
+    @extend %flex-display;
+    @extend %flex-just-b;
+  
+    .icn{
+      width:20%;
+      color:#fff;
+      @extend %flex-display;
+      @extend %flex-align-items;
+      @extend %flex-just-c;
+      @include prefixed(transition, 0.4s);
+      transition: 0.4s;
+      height: 100%;
+      background-color: $color-main;  
+      cursor:pointer;
+      &:hover{
+        background-color: darken($color-main, 5%);
+        .fa-comments{
+          animation-name: bounceIn;
+          animation-duration: 2s;
+        }
+      }
+    }
+  
+    .txt{
+      width:75%;
+      h5{
+        margin:20px 0px 5px 0px;
+        font-size:pxtoem(17px, 16px);
+        color:lighten($color-second, 8%);
+        font-weight: 600;
+        letter-spacing: 1px;
+  
+        .minimize{    
+          cursor: pointer;    
+          span{
+            display: table;
+            box-sizing: border-box;
+            color:$color-main;            
+            padding: 4px;
+            float: right;
+            position: relative;
+            top:-9px;
+            right:19px;
+            z-index: 2;
+            font-size: pxtoem(10px, 16px); 
+            border-radius: 50%; 
+          }
+
+          &:hover{
+            span{
+              color:$color-third;
+            }            
+          }
+        }
+      }
+  
+      p{
+        @extend %pSideFloat
+      }
+    }
+
+
+
+
+    .txt--hide-mode{
+      background-color: $color-main; 
+      p{
+        @extend %pSideFloat;
+        a{
+          color:#fff;    
+        }
+      }    
+    }
+
+
+
+    &.active{
+        bottom:20px;
+    }
+
+    &.hide-mode{
+      width: 55px;
+      height: 55px;
+      background: transparent;
+      border-radius: 50%;
+      cursor: pointer;
+      i{
+        font-size: 24px!important;
+      }
+      .icn{
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+      }
+
+      .txt--hide-mode{
+        display: none;
+        width: 70%;
+        text-align: center;
+        a{
+          display: table;
+        }
+      }
+
+      &:hover{
+        border-radius: 30px;
+        width:194px;
+        height:40px;;
+        .icn{
+          width: 30%;
+          border-radius: 0%;
+        }
+        .txt--hide-mode{
+          display: block;
+        }
+      }
+    }
+    
+  }
+  

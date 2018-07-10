@@ -1,0 +1,151 @@
+//1. ESTRUCTURE
+//=============================================================
+.container-fluid{
+  width: 100%;
+  margin: auto;
+  height: auto;
+  overflow: auto;
+  @include mq($desktop){
+    max-width: 1280px;
+    width: 90%;
+  };
+}
+
+
+
+.container-full{
+  width: 100%;
+  margin: auto;
+  height: auto;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0px 15px;
+}
+
+
+.container{
+  max-width: 1280px;
+  width: 90%;
+  margin: auto;
+  height: auto;
+  overflow: auto;
+}
+
+.row {
+  clear: both;
+}
+
+.section{
+  padding:20px 0px;
+  $sizes:(
+    xl:100px,
+    l:80px,
+    m:40px,
+    s:20px
+  );
+  @each $size, $padd in $sizes{
+    &-#{$size}{
+     clear: both;
+     padding-bottom: $padd;
+    }
+  }
+  @each $size, $padd in $sizes{
+    &-#{$size}--doble{
+     clear: both;
+     padding: $padd 0px;
+    }
+  }
+
+  @each $size, $padd in $sizes{
+    &-#{$size}--top{
+     clear: both;
+     padding-top: $padd;
+    }
+  }
+}
+
+@include mq($tablet){
+  .container{
+    width: 88%;
+  }
+}
+
+@include mq($laptop){
+  .container{
+    width: 88%;
+  }
+}
+//2. MIXINS
+//=============================================================
+//Grid
+@mixin grid($cols,$grid:12){
+    width:percentage($cols/$grid);
+    padding: 0px 15px;
+    float: left;
+    box-sizing: border-box;
+    margin-left: 0%;// * Reset offset
+    position:relative;
+}
+//Offset
+@mixin offset($offset,$o-grid:12){
+    margin-left: percentage($offset/$o-grid);
+}
+
+
+//3. DEVICES
+//=============================================================
+
+//Mobile - Grid & Offset
+@for $cols from 1 through 12{
+  .col{
+    &.s#{$cols}{
+      @include grid($cols);
+    }
+  }
+}
+@for $cols from 1 through 12{
+  .col{
+    &.offset-s-#{$cols}{
+      @include offset($cols);
+    }
+  }
+}
+
+
+
+
+//Tablet - Grid & Offset
+@include mq($tablet){
+  @for $cols from 1 through 12{
+    .col{
+      &.m#{$cols}{
+        @include grid($cols);
+      }
+    }
+  }
+  @for $cols from 1 through 12{
+    .col{
+      &.offset-m-#{$cols}{
+        @include offset($cols);
+      }
+    }
+  }
+}
+
+//Desktop - Grid & Offset
+@include mq($laptop){
+  @for $cols from 1 through 12{
+    .col{
+      &.l#{$cols}{
+        @include grid($cols);
+      }
+    }
+  }
+  @for $cols from 1 through 12{
+    .col{
+      &.offset-l-#{$cols}{
+        @include offset($cols);
+      }
+    }
+  }
+}

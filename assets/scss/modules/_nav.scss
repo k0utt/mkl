@@ -1,0 +1,437 @@
+// TOPBAR: Logo & Contact
+
+#logo{
+  @include prefixed(transition, 0.4s);
+  transition:0.4s;
+}
+
+.topbar{
+  @extend %flex-display;
+  @extend %flex-align-items;
+  @extend %flex-just-a;
+  position: relative;
+  z-index: 99;
+  justify-content: space-between;
+  height: 60px;
+  background: $color-dark;
+  box-sizing: border-box;
+  padding:0px;
+  .container-full{
+    height: 100%;
+    overflow: visible;
+    width: 100%;
+    padding: 0px;
+    @include mq($tablet){padding:0px 15px;};
+    @include mq($desktop){width: 93%;max-width:1280px;};
+  }
+  .top-datos--social{
+    height:100%;
+    @extend %flex-display;
+    @extend %flex-align-items;
+    @extend %flex-just-start;
+    p{
+      font-size: 11px;
+      @include mq($mobileH){font-size: 11.5px;};
+      span{
+        margin-right: 13px;
+        font-weight: 200;
+        letter-spacing: 0.5px;
+        color: $color-main;
+        @include mq($mobileH){margin-right: 35px;};
+      }
+      i{
+        color: $color-third;
+        margin-right: 5px;
+      }
+    }
+  }
+  .top-datos--idiomas{
+    height:100%;
+    justify-content: flex-end;
+    padding: 0px;
+    @extend %flex-display;
+    @extend %flex-align-items;
+    @extend %flex-just-a;
+    @include mq($laptop){
+      padding: 0px 15px;
+    };
+  }
+  .top-datos--contact{
+    @extend %flex-display;
+    @extend %flex-just-end;
+    @extend %flex-align-items;
+    height: 100%;
+    p{
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+// NAVBAR
+.navbar{
+  @include prefixed(transition,0.2s);
+  width: 100%;
+  background: transparent;
+  z-index: 3;
+  display: block;
+  position: absolute;
+  height:89px;
+  box-sizing: border-box;
+}
+
+.nav-container{
+  max-width: 1280px;
+  width: 90%;
+  margin: auto;
+  margin-top: 25px;
+  overflow: auto;
+  box-sizing: border-box;
+  padding: 0px;
+  height: 100%;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include mq($tablet){width: 88%;};
+}
+
+
+
+.brand{
+  width: 80%;
+  @extend %flex-display;
+  @extend %flex-just-c;
+  @extend %flex-align-items;
+
+  img{
+    margin-top: 8px;
+    width:130px;
+    @include prefixed(transition, 0.2s);
+    @include mq($mobileH){width:148px;};
+    @include mq($tablet){width:auto;};
+  }
+
+  @include mq($mobileH){width:74%;};
+  @include mq($tablet){width:80%;};
+  @include mq($laptop){display: block; margin-top:-5px; width: 40%;  -webkit-box-pack: justify;-ms-flex-pack: justify;-webkit-justify-content: space-between;justify-content: space-between;};
+}
+
+
+
+.nav{
+  font-family: $font-popins;
+  width: 20%;
+  height: 100%;
+  display: none;
+  @extend %flex-display;
+  @extend %flex-align-items;
+  @extend  %flex-just-end;
+  @include prefixed(transition, .3s);
+  @include mq($mobileH){width: 26%; margin:0px;};
+  @include mq($tablet){width: 20%;margin: auto;};
+  @include mq($laptop){display: flex; width:60%;};
+
+
+
+
+
+
+
+
+
+
+
+
+  .menu{
+    display: none;
+    width: 100%;
+    width: 100%;
+    height:100%;
+    padding: 0px 15px;
+    @include mq($laptop){
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      -webkit-justify-content: space-between; /* Safari 6.1+ */
+      justify-content: space-between;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-align: center;
+      -moz-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    };
+
+    &__item {
+      height:100%;
+      box-sizing: border-box;
+      border-top: solid 3px transparent;
+      @include prefixed(transition,0.2s);
+      @extend %flex-display;
+      @extend %flex-align-items;
+      @extend %flex-just-a;
+
+
+      &.highlight{
+        border-left: solid #d6d6d6 1px;
+        border-top: 0px;
+
+
+        &:hover{
+          background: $color-main!important;
+          a{
+            background: $color-main!important;
+            color: #fff;
+          }
+        }
+      }
+
+
+      &:hover{
+        .menu__link{
+          color: $color-main;
+        }
+
+        .menu__link:before{
+            background: $color-main;
+            bottom: -4px;
+        }
+      }
+    }
+
+
+    &__link{
+      color:#fff;
+      font-weight: 300;
+      font-size: 14px;
+      letter-spacing: 2px;
+      @include prefixed(transition, .2s);
+      position: relative;
+      @extend %flex-display;
+      @extend %flex-align-items;
+      @extend %flex-just-c;
+      height:50%;
+ 
+      @include mq($laptop){font-size:pxtoem(13px,16px);};
+
+      i{
+        margin-right: 10px;
+      }
+
+      &:before{
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: -20px;
+        background:transparent;
+        @include prefixed(transition, .3s);
+        height: 3px;
+        width: 25px;
+      }
+
+      &:hover {
+        color: $color-main;
+      }
+    }
+  }
+
+  .contact-link{
+      box-sizing: border-box;
+      display: block;
+      width:23%;
+      height:40%;
+      background-color: $color-main;
+      padding: 8px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 0px;
+      a{
+        color: #fff;
+      }
+      &:hover{
+        background: $grey-l1;
+        a{
+          color: $color-main;
+        }
+      }
+  }
+}
+
+// NAVBAR MOBILE
+.burguer-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 85px;
+  width: 38px;
+  height: 34px;
+  margin-left: 30px;
+  border-radius: 5px;
+  color:$color-main;
+  font-size: pxtoem(16px,16px);
+
+  @include mq(400px){
+    width: 40px;
+    height: 37px;
+    font-size: pxtoem(19px,16px);
+  };
+  @include mq($tablet){
+    width: 40px;
+    height: 37px;
+    font-size: pxtoem(19px,16px);
+  };
+  @include mq($laptop){
+  display: none;
+  };
+}
+
+
+.mobile-nav{
+  display:block;
+  background:$grey-d2;
+  position:fixed;
+  left: -760px;
+  top: 0px;
+  width: 89%;
+  height:100%;
+  z-index: 99999;
+  overflow-y: scroll;
+  @include prefixed(transition, 0.2s);
+
+  &.mobile-nav--open{
+    left:0px!important;
+  }
+
+  .menu-mobile--top{
+    padding: 20px;
+    background: #000;
+    position: relative;
+    top: 0px;
+    display: flex;
+    z-index: 9;
+    align-items: center;
+    justify-content: space-between;
+    .menu-mobile--close{
+      width: 35px;
+      height: 35px;
+      @extend %cnt-x-cnt;
+      color:#d1d1d1;
+      border-radius: 50%;
+    }
+    @include mq($laptop){
+      padding: 20px 40px 20px 20px;
+    };
+  }
+
+
+
+
+  &__container.accordion{
+    margin-top: 0px;
+    border: 0px;
+    .accordion-section{
+      border-bottom-color: #4c4c4c;
+      background: transparent;
+      padding: 20px 10px 20px 20px;
+      @include mq($laptop){
+        padding: 20px 30px 20px 20px;
+      };
+    }
+    .accordion-content{
+      background: transparent;
+      border: 0px;
+      h4{
+        font-size: 19px;
+        line-height: 49px;
+        i{
+          font-size: 11px;
+          margin-right: 10px;
+          color: $color-main;
+        }
+      }
+    }
+    .accordion-title{
+      background: transparent;
+      &.active{
+        background:$grey;
+        color:$grey-d2;
+      }
+    }
+
+    .accordion-button{
+      &:after{
+        font-size: 20px;
+        border: 0px;
+        background: transparent;
+        color: #fff;
+      }
+
+    }
+  }
+
+
+  &__item{
+    display: flex;
+    align-items: center;
+    height: 30px;
+    padding: 20px;
+  }
+
+  &__link{
+    color: #fff;
+  }
+
+  .menu-mobile__link{
+    font-weight: 100!important;
+    letter-spacing: 2px;
+    font-size: 15px;
+    color: #fff;
+    @include mq($laptop){
+      font-size: 18px;
+    };
+  }
+
+  @include mq($mobileH){
+    width: 79%;
+  };
+  @include mq($tablet){
+    left: -460px;
+    width: 450px;
+  };
+  @include mq($laptop){
+    display:none;
+  };
+}
+
+.menu-mobile-span{
+  display: block;
+  width: 80%;
+  height: auto;
+  font-size: 14px;
+  color: #fff;
+  @include mq($mobileH){
+    display: none;
+  };
+}
+
+
+.movil-logo{
+  width: 140px;
+  @include mq($mobileH){
+    width: auto;
+  };
+}

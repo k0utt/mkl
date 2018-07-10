@@ -1,0 +1,397 @@
+//1.MAIN-SIZE
+//===============================================
+html{
+  font-family: $font-popins;
+  font-size: 15px;
+  line-height: 20px;
+  @include mq($tablet){
+    font-size:15.5px;
+    line-height: 20.5px;
+  };
+  @include mq($laptop){
+    font-size: 16px;
+    line-height: 21px;
+  };
+}
+//2.HEADERS
+//===============================================
+
+::-moz-selection { /* Code for Firefox */
+    color: #fff;
+    background: $color-main;
+}
+
+::selection {
+  color: #fff;
+  background: $color-main;
+}
+
+//Font-size
+@each $header in $headers{
+  $h:nth($header,1);
+  $fs:nth($header,2);
+  $lh:nth($header,3);
+  #{$h}{
+    font-size:pxtoem($fs,16px);
+    line-height:pxtoem($lh,16px);
+  }
+}
+
+h1{
+  color:$grey-d2;
+  margin-top: 0px;
+}
+
+
+ h2{
+   letter-spacing: 1px;
+   line-height: 32px;
+   font-weight: 300;
+   margin-top: 25px;
+
+   &.subtitle{
+     font-size: 18px;
+   }
+ }
+
+
+
+ h3{
+   letter-spacing:1px;
+   color:$color-main;
+   line-height:32px;
+   font-weight:300;
+   font-family:$font-popins;
+   margin-top:25px;
+   &.subtitle02{
+     font-size: 29px!important;
+   }
+ }
+//3.PARAGRAPHS/LINKS/LISTS...
+//===============================================
+
+p{
+  font-size: pxtoem($p-fs, 16px);
+  line-height: pxtoem($p-lh, 16px);
+  color: $text-color;
+  font-weight: 300;
+}
+
+a {
+  color: $color-main;
+  text-decoration: none;
+  @include prefixed(transition, 0.4s);
+}
+
+ul {
+  list-style-type: none;
+}
+
+//hr styles
+
+$hr-widths:(
+  corto:10%,
+  medio:50%,
+  largo:100%
+);
+
+
+$hr-heights:(
+  fino:1px,
+  normal:2px,
+  grueso:4px
+);
+
+
+.hr{
+  @each $hr-width,$hr-px in $hr-widths{
+    &-#{$hr-width}{
+      width:$hr-px;
+    }
+  }
+    @each $hr-height,$hr-px in $hr-heights{
+      &-#{$hr-height}{
+        height:$hr-px;
+      }
+  }
+}
+
+//4. FOOTER
+//===============================================
+
+footer{
+  background: $color-second;
+  h5{
+    color:#afafaf;
+    font-family: $font-popins;
+    margin-top: 20px;
+    letter-spacing: 2px;
+    font-weight: 400;
+    margin-bottom: 0px;
+    margin-top: 40px;
+    letter-spacing:2px;
+    @include mq($laptop){margin-top: 0px;};
+    a{
+      color: #afafaf;
+      &:hover{
+        color: #eee;
+      }
+    }
+  }
+  p{
+    color:#afafaf;
+    a{
+      color:#afafaf;
+      &:hover{
+        color: #eee;
+      }
+    }
+  }
+  ul{
+    margin-left: 21px!important;
+    li{
+      color:#afafaf;
+      line-height: 30px;
+      i{
+        line-height: 27px!important;
+        color:#afafaf;
+      }
+    }
+  }
+}
+
+
+.footer02{
+  background:darken($color-second,10%);
+  font-family: $font-popins;
+  letter-spacing: 1px;
+  box-sizing: border-box;
+  padding: 27px 0px 21px 0px;
+  p{
+    color:#a0a0a0;
+    font-size: 13px;
+  }
+
+  a{
+    color:#a0a0a0;
+    &:hover{
+      color: #eee;
+    }
+  }
+  span{
+    margin:0px 10px;
+  }
+
+  i{
+    font-size: 23px!important;
+    margin-left: 10px!important;
+    color:#a0a0a0;
+  }
+
+}
+
+.hr-foot{
+  position: relative;
+  &:after{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #494949;
+    bottom:-12px;
+    z-index: 2;
+  }
+}
+
+.hr-foot-hr{
+  height: 2px;
+  position: relative;
+  z-index: 2;
+}
+
+
+//5. CORPORATIVE ELEMENTS
+//===============================================
+
+//Corporate elements - Center cabs
+
+%center-cab{
+  // display: block;
+  // width:460px;
+  text-align: center;
+  font-size: pxtoem(28px,16px);
+  line-height: pxtoem(21px,16px);
+  font-family: $font-popins;
+  letter-spacing: 2px;
+  font-weight: 200;
+  position: relative;
+  color:$text-color;
+  margin:auto;
+  padding-bottom: 25px;
+  &:before{
+    content: '';
+    background-repeat: no-repeat;
+    width: 80px;
+    height: 4px;
+    background:$color-main;
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+  }
+}
+
+
+.enc-corp{
+  font-family: $font-popins;
+  text-transform: uppercase;
+
+  color: $color-second;
+  font-weight: 600;
+  letter-spacing: 1px;
+  strong{
+    font-weight: 600;
+    color: $color-main;
+  }
+  &.small{
+    margin-top:0px;
+    font-size: pxtoem(23px,16px);
+    line-height: pxtoem(24px,16px)!important;
+  }
+}
+
+
+
+h2.enc-corp{
+  font-size: 28px;
+  margin-top: 2px;
+}
+
+
+
+
+.section-marked{//Junto con enc-corp
+  &:before{
+    content: '';
+    background-repeat: no-repeat;
+    width: 13px;
+    height: 18px;
+    background:$color-main;
+    position: absolute;
+    left: 0px;
+    display: block;
+    margin-top: 8px;
+
+    @include mq($mobileH){
+      width: 25px;
+      height: 24px;
+      margin-top: 6px;
+    };
+    @include mq($tablet){
+      width: 31px;
+      height: 24px;
+      margin-top: 6px;
+    };
+    @include mq($laptop){
+      width: 50px;
+      height: 35px;
+      margin-top: 3px;
+    };
+    @include mq($desktop){
+      display: none;
+    };
+  }
+}
+
+
+
+
+.enc-corp-second{
+  font-family: $font-popins;
+  font-size: 20px;
+  font-weight: 500;
+  color: $grey;
+  padding-bottom: 10px;
+  border-bottom: solid 1px #eee;
+  margin-bottom: 40px;
+  &:after{
+    content: '';
+    display: block;
+    background: $color-main;
+    height: 3px;
+    position: relative;
+    bottom: -14px;
+    width: 40px;
+  }
+}
+
+
+
+
+.enc-corp-center{
+  font-family: $font-popins;
+  text-transform: uppercase;
+  text-align: center;
+  color: $color-second;
+  font-weight: 600;
+  letter-spacing: 1px;
+  strong{
+    font-weight: 600;
+    color: $color-main;
+  }
+}
+
+
+
+
+.subtit-corp{
+  font-size: 17px;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: $color-main;
+  font-style: italic;
+}
+
+
+
+.list-corp{
+  margin-left: 20px;
+  margin-top: 24px;
+  li{
+    margin: 10px 0px;
+    font-size: pxtoem(14px, 16px);
+    span{
+      color: $grey-d2!important;
+      font-style: italic;
+      font-weight: 400;
+    }
+  }
+}
+
+
+
+#cookiebar p{
+  box-sizing:border-box;
+  margin:0px;
+  padding:10px 0px;
+  font-size:13px;
+  color:#fff!important;
+}
+#cookiebar a{
+  display:block;
+  margin-left:10px;
+  width:70px;
+  height:18px;
+  float:left;
+}
+#cookieAcptBtn{
+  display:flex;
+  justify-content:center;
+  width:70px;
+  height:30px;
+  margin-top:0px;
+  background:#D6DE50;
+  color:#000;
+  box-sizing:border-box;
+  float:left;
+}

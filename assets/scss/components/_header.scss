@@ -1,0 +1,27 @@
+.mkl-head{
+  background-image: imgpath('','img-ex-lg.jpg');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  height:400px;
+  position: relative;
+  width: 100%;
+  z-index: -1;
+  top: 0px;
+  @extend %flex-display;
+  @extend %flex-align-items;
+  @include mq($laptop){height: 780px; padding-top: 0px;};
+
+  &__caption{
+    h1{
+      text-align: center;
+      letter-spacing: 2px;
+      font-family: $font-merri;
+      font-weight: 300;
+      font-size: pxtoem(47px, 16px);
+      i{
+        font-weight: 500;
+      }
+    }
+  }
+}

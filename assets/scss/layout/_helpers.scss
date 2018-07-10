@@ -1,0 +1,285 @@
+//1.TYPOGRAPHIC HELPERS
+//===============================================
+
+//Aligns
+$aligns:(
+right:'right',
+left:'left',
+center:'center'
+);
+
+@each $align,$direction in $aligns{
+  .#{$align}-align{
+    text-align: unquote($direction)!important;
+  }
+}
+
+
+.right-align{
+  &.resp-invert{
+    text-align: left!important;
+    @include mq($tablet){text-align: right!important;};
+  }
+}
+
+//Weights
+$weights:(
+bold:800,
+semi:600,
+regular:400,
+normal:300,
+light:200
+);
+
+@each $style,$weight in $weights{
+  .#{$style}{
+    font-weight: $weight;
+  }
+}
+
+
+
+.upcase{
+  text-transform: uppercase!important;
+}
+
+.font-second{
+  font-family: $font-popins;
+}
+
+
+//2.COLORS
+//===============================================
+
+.c-corp{
+  color:$color-main!important;
+}
+
+.c-corp-l{
+  color:$color-main!important;
+}
+
+.c-second{
+  color:$color-second!important;
+}
+
+.c-second-l{
+  color:$color-second!important;
+}
+
+.c-third{
+  color:$color-main!important;
+}
+
+.c-white{
+  color: #fff!important;
+}
+
+
+.bg-c-corp{
+  background:$color-main!important;
+}
+
+
+.bg-c-second{
+  background:$color-second!important;
+}
+
+.bg-white{
+  background:#fff;
+}
+
+.bg-grey{
+  background: $grey;
+}
+
+.bg-grey-l1{
+  background: $grey-l1;
+}
+
+.bg-grey-l2{
+  background: $grey-l2;
+}
+
+.bg-grey-d1{
+  background: $grey-d1;
+}
+
+.bg-grey-d2{
+  background: $grey-d2;
+}
+
+
+//3. ELEMENTS POSITIO-SIZE
+//===============================================
+
+.center-block{
+  display: block;
+  margin: 0px auto;
+}
+
+
+.responsive-img{
+  max-width: 100%;
+  height: auto;
+  &.img-full{
+    width: 100%;
+    @include mq($laptop){
+      width: auto;
+    };
+  }
+  &.img-redu{
+    @include mq($mobileH){max-width: 51%;};
+    @include mq($tablet){max-width: 100%;};
+  }
+  &.img-half{
+    float: left; margin-right: 5px; width: 46%; margin-bottom: 50px;
+    @include mq($tablet){float: none; width: auto;margin-right: 0px; margin-bottom: 0px;};
+  }
+}
+
+.responsive-r-img{
+  margin-top:50px;
+  @include mq($tablet){margin-top: 0px;};
+}
+
+
+.bordered{
+  border: solid 1px #ddd;
+  box-sizing: border-box;
+  padding: 3px;
+  border-radius: 10px;
+}
+
+
+.no-padd{
+  padding: 0!important;
+}
+
+.no-mar{
+  margin: 0!important;
+}
+
+.left{
+  float: left;
+}
+
+
+.right{
+  float: right;
+}
+
+
+
+//5. VISUAL STYLES
+//==================================================
+
+.soft-shadow{
+  @include prefixed(box-shadow,$soft-shadow);
+  box-shadow: $soft-shadow;
+}
+
+.blur-shadow{
+  box-shadow: $blur-shadow;
+}
+
+
+
+.separate{
+  position: relative;
+  &:after{
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    width: 1px;
+    background: #eee;
+  }
+}
+
+
+//6. HIDE/SHOW ELEMENTS
+//===============================================
+
+.disp-sm-and-up{
+  display: none;
+  @include mq($mobileH){display: block;}
+  &.inline{
+    display: none;
+    @include mq($mobileH){display: inline;}
+  }
+  &.fx{
+    display: none;
+    @include mq($mobileH){
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+    }
+  }
+}
+
+.disp-md-and-up{
+  display: none;
+  @include mq($tablet){
+    display: block;
+  };
+  &.inline{
+    display: none;
+    @include mq($tablet){display: inline;}
+  }
+  &.fx{
+    display: none;
+    @include mq($tablet){
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+    }
+  }
+}
+
+.disp-lg-and-up{
+  display: none;
+  @include mq($laptop){
+    display: block;
+  };
+  &.inline{
+    display: none;
+    @include mq($laptop){display: inline;}
+  }
+  &.fx{
+    display: none;
+    @include mq($laptop){
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+    }
+  }
+}
+
+.disp-xl-and-up{
+  display: none;
+  @include mq($desktop){
+    display: block;
+  };
+  &.inline{
+    display: none;
+    @include mq($desktop){display: inline;}
+  }
+  &.fbx{
+    display: none;
+    @include mq($desktop){
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+    }
+  }
+}
