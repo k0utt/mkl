@@ -1,24 +1,5 @@
 /* Aviso lateral flotante */
 
-%pSideFloat{
-  font-size: pxtoem(13px, 16px);
-  letter-spacing: 0.5px;
-  margin:6px 0px 0px 0px;
-  font-weight: 400;
-  strong{
-    color: $grey-d2;
-    font-weight: 600;
-  }
-  a{
-    display: block;
-   &:hover{
-     color: darken($color-main, 15%);
-   }
-  }
-}
-
-
-
 .side-float{
     overflow: hidden;
     height: 120px;
@@ -48,10 +29,6 @@
       cursor:pointer;
       &:hover{
         background-color: darken($color-main, 5%);
-        .fa-comments{
-          animation-name: bounceIn;
-          animation-duration: 2s;
-        }
       }
     }
   
@@ -89,22 +66,23 @@
       }
   
       p{
-        @extend %pSideFloat
+        font-size: pxtoem(13px, 16px);
+        letter-spacing: 0.5px;
+        margin:6px 0px 0px 0px;
+        font-weight: 400;
+        strong{
+          color: $grey-d2;
+          font-weight: 600;
+        }
+        a{
+          display: block;
+         &:hover{
+           color: darken($color-main, 15%);
+         }
+        }
       }
     }
 
-
-
-
-    .txt--hide-mode{
-      background-color: $color-main; 
-      p{
-        @extend %pSideFloat;
-        a{
-          color:#fff;    
-        }
-      }    
-    }
 
 
 
@@ -112,43 +90,64 @@
         bottom:20px;
     }
 
+
+    #hideModeTxt{
+      width: 0%;
+      text-align: center;     
+      position: absolute;
+      right: 58%;
+      z-index: 1;
+      display: none;
+      span{
+        color: #fff;
+        line-height: 40px;
+      } 
+    }
+
+
+
     &.hide-mode{
       width: 55px;
       height: 55px;
-      background: transparent;
       border-radius: 50%;
+      background: $color-main;
       cursor: pointer;
       i{
         font-size: 24px!important;
       }
       .icn{
         border-radius: 50%;
+        background: transparent;
         width: 100%;
         height: 100%;
+        position: relative;
+        z-index: 9;
+        .fa-comments{
+          @include prefixed(transition, 0.4s);
+          transition: 0.4s;
+        }
+
       }
 
-      .txt--hide-mode{
-        display: none;
-        width: 70%;
-        text-align: center;
-        a{
-          display: table;
-        }
-      }
 
       &:hover{
         border-radius: 30px;
         width:194px;
-        height:40px;;
+        height:40px;
         .icn{
-          width: 30%;
           border-radius: 0%;
+          .fa-comments{
+            @include prefixed(transform, translateX(40px));
+            transform: translateX(-47px);            
+          }          
         }
-        .txt--hide-mode{
-          display: block;
+        #hideModeTxt{
+          display: table;
         }
       }
     }
     
   }
+
+
   

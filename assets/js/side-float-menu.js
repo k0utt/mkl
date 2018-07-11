@@ -29,33 +29,18 @@ $(document).ready(function(){
         localStorage.sideFloat = 'hide-mode';
         
 
-        if($('#side-float').hasClass('hide-mode')){
+        var hideModeTxt    = document.createElement('div'),
+            txtEl          = document.createElement('span'),
+            txt            = "Hablemos";
 
-            var main   = document.createElement('div'),
-                pargh  = document.createElement('p'),
-                link   = document.createElement('a'),
-                linkTxt = "Hablemos";
-
-                link.textContent = linkTxt;
-                link.setAttribute('id','hideModeLink'),
-                main.setAttribute('id','hideMode');
-                pargh.appendChild(link);
-                main.appendChild(pargh);                       
+            txtEl.textContent = txt;
+            hideModeTxt.setAttribute('id','hideModeTxt');
+            hideModeTxt.appendChild(txtEl);                       
 
 
-            $('#side-float .txt').remove();
-            $('#side-float .txt h5').remove();
-            $('#side-float .txt p').remove();
-            $('#side-float .txt p a').remove();
-            $('#side-float').append(main);
-            $('#hideModeLink').addClass('form-trigg');
-            $('#hideMode p').addClass('form-trigg');
-            $('#hideMode').addClass('txt--hide-mode');
-            $('#hideMode').addClass('form-trigg');
-            
+        $('#side-float .txt').remove();
+        $('#side-float').append(hideModeTxt);
 
-
-        }
         
     
     });
